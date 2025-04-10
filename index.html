@@ -2,330 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Somoye Christopher - Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
       line-height: 1.6;
-      background: linear-gradient(to bottom, #f0f4ff, #fff7e6);
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
       color: #2c3e50;
     }
-    .container {
-      width: 85%;
-      max-width: 1200px;
-      margin: auto;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
-    header {
-      background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
     }
-    header h2 {
-      margin: 3px 0;
-      font-size: 1.2em;
-      font-weight: normal;
+
+    .card-content {
+      padding: 1rem;
     }
-    nav ul {
-      list-style: none;
-      padding: 5px 0;
-    }
-    nav ul li {
-      display: inline;
-      margin: 0 20px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1em;
-      padding: 5px 10px;
-      border-radius: 20px;
-      transition: background 0.3s;
-    }
-    nav ul li a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    section {
-      padding: 50px 0;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 244, 255, 0.8));
-    }
-    section h3 {
-      font-size: 2.2em;
-      margin-bottom: 25px;
-      text-align: center;
-      color: #e74c3c;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    #about p {
-      font-size: 1.2em;
-      max-width: 900px;
-      margin: 0 auto 25px;
-      text-align: center;
+
+    .card h3 {
+      margin-bottom: 0.5rem;
       color: #34495e;
     }
-    .skills {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
     }
-    .skills li {
-      background: linear-gradient(135deg, #3498db, #2980b9);
-      color: #fff;
-      padding: 10px 20px;
-      margin: 8px;
-      border-radius: 25px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-    .skills li:hover {
-      transform: scale(1.05);
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-    }
-    .project-card {
-      background: linear-gradient(to bottom right, #fefefe, #ecf0f1);
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 15px;
-    }
-    .slides img {
-      display: none;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .slides img.active {
-      display: block;
-    }
-    .carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.4);
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 50%;
-    }
-    .carousel .prev {
-      left: 10px;
-    }
-    .carousel .next {
-      right: 10px;
-    }
-    .btn {
+
+    .card a {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #3498db;
+      padding: 0.5rem 1rem;
+      background: #3498db;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-    .btn:hover {
-      background-color: #2980b9;
+
+    .card a:hover {
+      background: #2980b9;
     }
-    #contact p, #contact a {
-      text-align: center;
-      font-size: 1.1em;
-      color: #2c3e50;
-    }
-    .social-links {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .social-links a {
-      margin: 0 10px;
-      font-size: 1.5em;
-      color: #2c3e50;
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: #3498db;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #ecf0f1;
-      color: #7f8c8d;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card img {
+        height: 150px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Somoye Christopher</h1>
-      <h2>Mobile App Engineer</h2>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+    <h1>My Portfolio</h1>
   </header>
 
-  <section id="about">
-    <div class="container">
-      <h3>About Me</h3>
-      <p>Innovative Mobile Engineer with over 3.5 years of experience building scalable, user-focused apps using Flutter, Android SDK, and iOS SDK. Passionate about leveraging state management, machine learning, and geospatial tools to deliver impactful solutions.</p>
-      <h4 style="text-align: center;">Skills</h4>
-      <ul class="skills">
-        <li>Dart, Python, Kotlin</li>
-        <li>Flutter, Android SDK, iOS SDK</li>
-        <li>MVVM, Bloc, GetX, Provider</li>
-        <li>TensorFlow, PyTorch, Computer Vision</li>
-        <li>FastAPI, Docker, Firebase</li>
-        <li>ArcGIS, QGIS, Mapbox API</li>
-      </ul>
-    </div>
-  </section>
+  <section class="grid">
 
-  <section id="projects">
-    <div class="container">
-      <h3>Projects</h3>
-      <div class="project-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <h4>Devotional Mobile Application</h4>
-          <p><strong>Tech:</strong> Flutter, Provider, SQLite, Firebase</p>
-          <div class="carousel">
-            <div class="slides">
-              <img src="images/home_dark.jpg" class="active" alt="Home Dark">
-              <img src="images/home_light.jpg" alt="Home Light">
-              <img src="images/bible_dark.jpg" alt="Bible Dark">
-              <img src="images/journal_light.jpg" alt="Journal Light">
-              <img src="images/devotional_dark.jpg" alt="Devotional Dark">
-            </div>
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
-          </div>
-          <p>Cross-platform app with daily devotionals, Bible access (4 versions), text-to-speech, and journaling.</p>
-          <p><strong>Achievements:</strong> Offline functionality, real-time updates.</p>
-          <a href="https://github.com/chris-netizen/youth_guide" target="_blank" class="btn">View on GitHub</a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <h4>Medical Diagnostics Platform</h4>
-          <p><strong>Tech:</strong> Flutter, FastAPI, TensorFlow, Docker</p>
-          <div class="carousel">
-            <div class="slides">
-              <img src="images/medical1.jpg" class="active" alt="Medical 1">
-              <img src="images/medical2.jpg" alt="Medical 2">
-            </div>
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
-          </div>
-          <p>A mobile app with deep learning for medical test kit analysis.</p>
-          <p><strong>Achievements:</strong> 70% accuracy with limited data.</p>
-          <a href="https://github.com/chris-netizen/medical-diagnostics" target="_blank" class="btn">View on GitHub</a>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <h4>Logistics Navigation System</h4>
-          <p><strong>Tech:</strong> Flutter, Mapbox API, MVVM</p>
-          <div class="carousel">
-            <div class="slides">
-              <img src="images/logistics1.jpg" class="active" alt="Logistics 1">
-              <img src="images/logistics2.jpg" alt="Logistics 2">
-            </div>
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
-          </div>
-          <p>A navigation app for drivers with real-time route optimization.</p>
-          <p><strong>Achievements:</strong> Enhanced delivery efficiency.</p>
-          <a href="https://github.com/chris-netizen/logistics-nav" target="_blank" class="btn">View on GitHub</a>
-        </div>
+    <div class="card">
+      <img src="images/calculator.png" alt="Calculator Project" loading="lazy" />
+      <div class="card-content">
+        <h3>Calculator</h3>
+        <p>A simple calculator built using Flutter and Dart. Supports basic arithmetic operations with a sleek UI.</p>
+        <a href="https://github.com/Dejichris/calculator">View Project</a>
       </div>
     </div>
-  </section>
 
-  <section id="contact">
-    <div class="container">
-      <h3>Contact Me</h3>
-      <p>Email: <a href="mailto:adedejisomoye1@gmail.com">adedejisomoye1@gmail.com</a></p>
-      <p>Phone: +234-803-403-6018</p>
-      <div class="social-links">
-        <a href="https://linkedin.com/in/christopher-somoye-273b45173" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/chris-netizen" target="_blank"><i class="fab fa-github"></i></a>
+    <div class="card">
+      <img src="images/musicplayer.png" alt="Music Player Project" loading="lazy" />
+      <div class="card-content">
+        <h3>Music Player</h3>
+        <p>A music player app created using Flutter, featuring audio playback, controls, and modern UI design.</p>
+        <a href="https://github.com/Dejichris/musicplayer">View Project</a>
       </div>
-      <p>Let's build something amazing together!</p>
     </div>
+
+    <div class="card">
+      <img src="images/my_gallery.png" alt="My Gallery App" loading="lazy" />
+      <div class="card-content">
+        <h3>My Gallery</h3>
+        <p>An image gallery app that lets users view, upload, and manage their images in an intuitive interface.</p>
+        <a href="https://github.com/Dejichris/my_gallery">View Project</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/naijafoodie.png" alt="Naija Foodie App" loading="lazy" />
+      <div class="card-content">
+        <h3>Naija Foodie</h3>
+        <p>A restaurant app for ordering delicious meals, filtering food categories, and seamless user experience.</p>
+        <a href="https://github.com/Dejichris/NaijaFoodie">View Project</a>
+      </div>
+    </div>
+
   </section>
 
-  <footer>
-    <p>© 2025 Somoye Christopher</p>
-  </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        const section = document.querySelector(anchor.getAttribute('href'));
-        section.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Carousel logic
-    document.querySelectorAll('.project-card').forEach(card => {
-      const slides = card.querySelectorAll('.slides img');
-      const prev = card.querySelector('.prev');
-      const next = card.querySelector('.next');
-      let currentIndex = 0;
-
-      function showSlide(index) {
-        slides.forEach((img, i) => {
-          img.classList.toggle('active', i === index);
-        });
-      }
-
-      prev.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-      });
-
-      next.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      });
-
-      showSlide(currentIndex);
-    });
-  </script>
 </body>
 </html>
