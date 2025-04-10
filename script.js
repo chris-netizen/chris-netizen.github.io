@@ -1,12 +1,13 @@
-// Smooth scroll (existing)
+// Smooth scroll for navigation
 document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        const section = document.querySelector(anchor.getAttribute('href'));
+        section.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Carousel functionality
+// Carousel functionality for each project card
 document.querySelectorAll('.project-card').forEach(card => {
     const slides = card.querySelectorAll('.slides img');
     const prev = card.querySelector('.prev');
@@ -28,4 +29,7 @@ document.querySelectorAll('.project-card').forEach(card => {
         currentIndex = (currentIndex + 1) % slides.length;
         showSlide(currentIndex);
     });
+
+    // Initial display
+    showSlide(currentIndex);
 });

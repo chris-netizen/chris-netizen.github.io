@@ -3,72 +3,83 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(to bottom, #f0f4ff, #fff7e6);
+    color: #2c3e50;
 }
 
 .container {
-    width: 80%;
+    width: 85%;
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
 }
 
+/* Smaller, Colorful Header */
 header {
-    background: #333;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduced padding */
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2em; /* Smaller font */
 }
 
 header h2 {
-    margin: 5px 0;
-    font-size: 1.5em;
+    margin: 3px 0;
+    font-size: 1.2em; /* Smaller font */
     font-weight: normal;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
+    padding: 5px 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ddd;
+    background: rgba(255, 255, 255, 0.2);
 }
 
+/* Sections */
 section {
-    padding: 40px 0;
+    padding: 50px 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 244, 255, 0.8));
 }
 
 section h3 {
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 2.2em;
+    margin-bottom: 25px;
     text-align: center;
+    color: #e74c3c;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 #about p {
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 0 auto 20px;
+    font-size: 1.2em;
+    max-width: 900px;
+    margin: 0 auto 25px;
     text-align: center;
+    color: #34495e;
 }
 
 .skills {
@@ -80,97 +91,79 @@ section h3 {
 }
 
 .skills li {
-    background: #333;
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: #fff;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    margin: 8px;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
+.skills li:hover {
+    transform: scale(1.05);
+}
+
+/* Projects */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
 .project-card {
     background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(to bottom right, #fefefe, #ecf0f1);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .project-card h4 {
-    margin: 0 0 10px;
-    font-size: 1.5em;
+    margin: 0 0 15px;
+    font-size: 1.6em;
+    color: #e67e22;
 }
 
 .project-card p {
-    margin: 5px 0;
+    margin: 8px 0;
+    color: #7f8c8d;
 }
 
-.project-card a {
-    color: #333;
+.project-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
     text-decoration: none;
+    border-radius: 20px;
     font-weight: bold;
+    transition: background 0.3s;
 }
 
-.project-card a:hover {
-    text-decoration: underline;
+.project-card .btn:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
 }
 
-#contact {
-    background: #333;
-    color: #fff;
-    text-align: center;
-}
-
-#contact a {
-    color: #fff;
-}
-
-.social-links {
-    margin: 20px 0;
-}
-
-.social-links a {
-    color: #fff;
-    font-size: 1.5em;
-    margin: 0 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: #fff;
-}
-
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-}
-
+/* Carousel */
 .carousel {
     position: relative;
     max-width: 100%;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .slides img {
     display: none;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
 }
 
 .slides img.active {
@@ -181,17 +174,80 @@ button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 12px 15px;
     cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2em;
+    transition: background 0.3s;
+}
+
+button.prev:hover, button.next:hover {
+    background: linear-gradient(135deg, #c0392b, #992d22);
 }
 
 button.prev {
-    left: 0;
+    left: 10px;
 }
 
 button.next {
-    right: 0;
+    right: 10px;
+}
+
+/* Contact */
+#contact {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: #fff;
+    text-align: center;
+}
+
+#contact a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin: 25px 0;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 2em;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #f1c40f;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    nav ul li {
+        display: block;
+        margin: 12px 0;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    header h2 {
+        font-size: 1em;
+    }
 }
