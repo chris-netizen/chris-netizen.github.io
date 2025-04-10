@@ -160,3 +160,38 @@ footer {
         margin: 10px 0;
     }
 }
+
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.slides img {
+    display: none;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.slides img.active {
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button.prev {
+    left: 0;
+}
+
+button.next {
+    right: 0;
+}
